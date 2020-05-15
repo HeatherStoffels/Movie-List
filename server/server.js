@@ -9,6 +9,17 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 
+// GET ROUTE
+
+
+
+// POST ROUTE
+
+
+
+//PUT ROUTE
+
+
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import MovieList from "../MovieList/MovieList";
-import { HashRouter, Route} from "react-router-dom";
+import { HashRouter, Route, Link} from "react-router-dom";
 import { connect } from "react-redux";
+import Details from '../Details/Details'
 
 class App extends Component {
 
@@ -19,11 +20,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+          <HashRouter>
+          <Route
+            exact path="/"
+            render={(props) => (
+                <MovieList {...props} dispatch={this.props.reduxState}/>
+            )}
+          />
+           <Route
+            path="/details"
+            render={(props) => (
+              <Details {...props} dispatch={this.props.dispatch} />
+            )}
+          />
+              
        
-              <MovieList dispatch={this.props.reduxState}/>
-       
-          <button onClick={this.getMovies}>click here for movies</button>
-       
+         
+          </HashRouter>
       </div>
     );
   }

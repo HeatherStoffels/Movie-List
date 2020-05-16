@@ -11,12 +11,11 @@ class MovieList extends Component {
       <div className="App">
         <p>Movie List</p>
         {this.props.reduxState.movies.map((movie)=> {
-        
                     return(
                         <div key={movie.id} ><MovieItem  movie={movie}/></div>
                         )
                     })}
-        <MovieItem />
+       
       </div>
     );
   }

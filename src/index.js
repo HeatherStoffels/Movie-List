@@ -16,6 +16,7 @@ import { takeEvery, put } from "redux-saga/effects";
 function* rootSaga() {
   console.log("in rootSaga");
   yield takeEvery("getMovies", getMovies);
+  yield takeEvery("posterClicked", posterClicked)
 }
 
 // create function to call to server
@@ -29,6 +30,11 @@ function* getMovies(action) {
     console.log(error);
   }
 }
+
+function* posterClicked (action){
+    console.log('in posterClicked', action.payload);
+    yield put({type: "GET_INFO", payload: action.payload})
+}
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -40,6 +46,14 @@ const movies = (state = [], action) => {
     default:
       return state;
   }
+};
+// new reducer for get into
+const getinfo = (state = {}, action) =>{
+if (action.type === "GET_INFO"){
+    return action.payload
+}else{
+return state
+}
 };
 
 // Used to store the movie genres
@@ -57,6 +71,7 @@ const storeInstance = createStore(
   combineReducers({
     movies,
     genres,
+    getinfo
   }),
   // Add sagaMiddleware to our store
   compose(

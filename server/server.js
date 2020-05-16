@@ -26,7 +26,22 @@ app.get('/movies', (req, res) => {
       })
   })
 
+// GET GENRE 
 
+app.get('/genre', (req, res) => {
+    console.log('request received in genre');
+  
+    const sqlText = `SELECT * FROM movies`;
+    pool.query(sqlText)
+      .then((response) => {
+       
+        res.send(response.rows);
+      })
+      .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500); 
+      })
+  })
 // POST ROUTE
 
 

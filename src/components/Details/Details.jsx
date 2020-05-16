@@ -11,8 +11,9 @@ class Details extends Component {
     return (
        
       <div className="details">
-         
-       <h1></h1>
+        
+       <h1>{this.props.reduxState.getinfo.title}</h1>
+       <p>{this.props.reduxState.getinfo.description}</p>
        
       </div>
     );

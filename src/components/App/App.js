@@ -19,19 +19,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <HashRouter>
-        <p>App js</p>
-        
-        <Route
-            exact
-            path="/"
-            render={(props) => (
+       
               <MovieList dispatch={this.props.reduxState}/>
-            )}
-            
-          />
+       
           <button onClick={this.getMovies}>click here for movies</button>
-        </HashRouter>
+       
       </div>
     );
   }

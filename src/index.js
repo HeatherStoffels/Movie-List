@@ -23,8 +23,7 @@ function* rootSaga() {
 function* getMovies(action) {
   console.log("in getmovies function");
   try {
-    const response = yield axios.get("/movies");
-    console.log('in Saga after DB', response.data)
+    const response = yield axios.get("/movies")
     yield put({ type: "SET_MOVIES", payload: response.data });
   } catch (error) {
     console.log(error);
@@ -37,8 +36,7 @@ const sagaMiddleware = createSagaMiddleware();
 const movies = (state = [], action) => {
   switch (action.type) {
     case "SET_MOVIES":
-      console.log("in movies reducer", action);
-      return state;
+      return action.payload;
     default:
       return state;
   }
@@ -48,7 +46,6 @@ const movies = (state = [], action) => {
 const genres = (state = [], action) => {
   switch (action.type) {
     case "SET_GENRES":
-      console.log("in genre reducer");
       return action.payload;
     default:
       return state;

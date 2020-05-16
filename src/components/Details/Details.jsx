@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MovieItem from '../MovieItem/MovieItem'
 // import MovieList from '../MovieList/MovieList'
 import { connect } from "react-redux";
+import { HashRouter, Link } from "react-router-dom";
 
 
 class Details extends Component {
@@ -11,10 +12,11 @@ class Details extends Component {
     return (
        
       <div className="details">
-        
+        <HashRouter>
        <h1>{this.props.reduxState.getinfo.title}</h1>
        <p>{this.props.reduxState.getinfo.description}</p>
-       
+       <Link to="/"><button>Home</button></Link>
+       </HashRouter>
       </div>
     );
   }

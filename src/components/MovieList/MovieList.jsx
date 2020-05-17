@@ -8,10 +8,12 @@ class MovieList extends Component {
   render() {
     return (
       // will need a .map
+      <div>
+      <header>
+      <h1>Movie List</h1>
+    </header>
       <div className="MovieList">
-        <header>
-          <h1>Movie List</h1>
-        </header>
+       
         {this.props.reduxState.movies.map((movie) => {
           return (
             <div key={movie.id}>
@@ -19,6 +21,7 @@ class MovieList extends Component {
             </div>
           );
         })}
+      </div>
       </div>
     );
   }

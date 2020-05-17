@@ -14,7 +14,6 @@ details page.
 
 This project was created with React and also used redux, sagas, bootstrap, postgresql, and reactstrap.
 
-In the future I would like to work on some more styling. I would like the cards to display in columns and rows instead of a single
-vertical line.
+In the future I would like to work on some more styling. I would like the pages to have transitions. 
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).

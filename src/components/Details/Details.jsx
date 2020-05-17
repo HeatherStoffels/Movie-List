@@ -7,7 +7,7 @@ import { HashRouter, Link } from "react-router-dom";
 
 
 class Details extends Component {
-  // Renders the list of movies
+ 
   render() {
 
     // map through genres.map

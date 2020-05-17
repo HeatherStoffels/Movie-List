@@ -21,12 +21,14 @@ class MovieItem extends Component {
       <div className="MovieItem">
         <HashRouter>
           <h1>{this.props.movie.title}</h1>
+          <br/>
           <Link to="/details">
-            <img className="moviePosters"
+          <div><img
               onClick={this.posterClicked}
               src={this.props.movie.poster} alt={this.props.movie.description}
-            />
+            /></div>
           </Link>
+          <br/>
           <p>{this.props.movie.description}</p>
         </HashRouter>
       </div>

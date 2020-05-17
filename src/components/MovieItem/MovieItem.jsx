@@ -2,17 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { HashRouter, Link } from "react-router-dom";
 import "./MovieItem.css";
-import {
-    
-  Card,
-  CardImg,
-  
-  CardBody,
-  CardTitle,
-  
-  
-  
-} from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle } from "reactstrap";
 
 class MovieItem extends Component {
   // Renders individual movies
@@ -25,31 +15,24 @@ class MovieItem extends Component {
     // send request to the database with genres
   };
   render() {
-    // const { movie } = this.props;
-    //   console.log("im movieItem", movie);
     return (
       <div className="MovieItem">
         <HashRouter>
-        
-
-            <Card className="card" >
+          <Card className="card">
             <CardBody>
-                <CardTitle>{this.props.movie.title}</CardTitle>
-              </CardBody>
-              <Link to="/details">
-                <CardImg
-                  top
-                  width="100%"
-                  style={{ width: "50%", height: "30%" }}
-                  src={this.props.movie.poster}
-                  alt={this.props.movie.description}
-                  onClick={this.posterClicked}
-                />{" "}
-              </Link>
-             
-            </Card>
-        
-
+              <CardTitle>{this.props.movie.title}</CardTitle>
+            </CardBody>
+            <Link to="/details">
+              <CardImg
+                top
+                width="100%"
+                style={{ width: "50%", height: "30%" }}
+                src={this.props.movie.poster}
+                alt={this.props.movie.description}
+                onClick={this.posterClicked}
+              />{" "}
+            </Link>
+          </Card>
         </HashRouter>
       </div>
     );

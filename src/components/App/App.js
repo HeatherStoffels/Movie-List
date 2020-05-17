@@ -1,47 +1,43 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 import MovieList from "../MovieList/MovieList";
-import { HashRouter, Route} from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import Details from '../Details/Details'
-import Edit from '../Edit/Edit'
+import Details from "../Details/Details";
+import Edit from "../Edit/Edit";
 
 class App extends Component {
+  componentDidMount() {
+    console.log("component in APP", this.props);
+    // get request function
+    this.props.dispatch({ type: "getMovies" });
+  }
 
-    componentDidMount(){
-        console.log('component in APP', this.props);
-        // get request function
-        this.props.dispatch({ type: 'getMovies'});
-
-    }
-    // getMovies = ()=>{
-    //     this.props.dispatch({ type: 'getMovies'});
-    // }
   // Renders the entire app on the DOM
   render() {
     return (
       <div className="App">
-          <HashRouter>
+        <HashRouter>
           <Route
-            exact path="/"
+            exact
+            path="/"
             render={(props) => (
-                <MovieList {...props} dispatch={this.props.reduxState}/>
+              <MovieList {...props} dispatch={this.props.reduxState} />
             )}
           />
-           <Route
+          <Route
             path="/details"
             render={(props) => (
               <Details {...props} dispatch={this.props.dispatch} />
             )}
           />
-           <Route
+          <Route
             path="/edit"
             render={(props) => (
-                <Edit {...props} dispatch={this.props.dispatch}/>
-            )}   
-         />
-         
-          </HashRouter>
+              <Edit {...props} dispatch={this.props.dispatch} />
+            )}
+          />
+        </HashRouter>
       </div>
     );
   }
@@ -51,4 +47,3 @@ class App extends Component {
 const reduxStateToProps = (reduxState) => ({ reduxState });
 
 export default connect(reduxStateToProps)(App);
-// export default App;

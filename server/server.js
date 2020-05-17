@@ -66,9 +66,6 @@ app.get("/movies/:id", (req, res) => {
       res.sendStatus(500);
     });
 });
-// POST ROUTE
-
-//PUT ROUTE
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

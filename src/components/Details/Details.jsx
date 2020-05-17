@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import MovieItem from '../MovieItem/MovieItem'
+// import MovieItem from '../MovieItem/MovieItem'
 // import MovieList from '../MovieList/MovieList'
 import { connect } from "react-redux";
 import { HashRouter, Link } from "react-router-dom";
-import Edit from "../Edit/Edit"
+
 
 
 class Details extends Component {

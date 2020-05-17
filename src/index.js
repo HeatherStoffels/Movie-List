@@ -11,6 +11,8 @@ import logger from "redux-logger";
 // Import saga middleware
 import createSagaMiddleware from "redux-saga";
 import { takeEvery, put } from "redux-saga/effects";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // Create the rootSaga generator function
 function* rootSaga() {
@@ -38,6 +40,9 @@ function* description (action){
     let id = action.payload.id
     try{
          yield axios.put(`/movies/${id}`, ({data: action.payload}))
+         const response = yield axios.get("/movies")
+    yield put({ type: "SET_MOVIES", payload: response.data });
+        
        console.log('sent data to database');
     }catch (error){
         console.log('error in description generator function', error);

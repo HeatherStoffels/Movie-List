@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { HashRouter, Link } from "react-router-dom";
+import './MovieItem.css'
 
 class MovieItem extends Component {
   // Renders individual movies
@@ -14,19 +15,19 @@ class MovieItem extends Component {
 
   };
   render() {
-    const { movie } = this.props;
+    // const { movie } = this.props;
     //   console.log("im movieItem", movie);
     return (
-      <div className="App">
+      <div className="MovieItem">
         <HashRouter>
           <h1>{this.props.movie.title}</h1>
           <Link to="/details">
-            <img
+            <img className="moviePosters"
               onClick={this.posterClicked}
-              src={this.props.movie.poster}
+              src={this.props.movie.poster} alt={this.props.movie.description}
             />
           </Link>
-          {/* <p>{this.props.movie.description}</p> */}
+          <p>{this.props.movie.description}</p>
         </HashRouter>
       </div>
     );

@@ -14,7 +14,7 @@ app.use(express.static('build'));
 app.get('/movies', (req, res) => {
     console.log('request received in get');
   
-    const sqlText = `SELECT * FROM movies`;
+    const sqlText = `SELECT * FROM movies ORDER BY title ASC`;
     pool.query(sqlText)
       .then((response) => {
        
@@ -26,7 +26,24 @@ app.get('/movies', (req, res) => {
       })
   })
   // PUT route for description
-  app.put('/movies')
+  app.put('/movies/:id', (req, res) => {
+      console.log('in put server')
+    let descriptionId = req.params.id;
+    let update = req.body.description;
+    let sqlText = '';
+    sqlText = `UPDATE movies SET description=description WHERE id=$1`;
+    pool.query(sqlText, [descriptionId])
+    .then((result) => {
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500);
+    })
+})
+
+       
+
 
 // GET GENRE 
 

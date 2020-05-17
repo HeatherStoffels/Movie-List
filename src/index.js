@@ -34,12 +34,13 @@ function* getGenre(action) {
 
 // function to send put request to database to update description
 function* description (action){
-    console.log('in description reducer', action.payload);
+    console.log('in description generator function', action.payload);
+    let id = action.payload.id
     try{
-        const response = yield axios.put("/movies")
-        yield put({type: "SET_NEW_DESC", payload: response.data});
+         yield axios.put(`/movies/${id}`, ({data: action.payload}))
+       console.log('sent data to database');
     }catch (error){
-        console.log('error in description reducer', error);
+        console.log('error in description generator function', error);
     }
 }
 // create function to call to server

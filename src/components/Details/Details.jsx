@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { HashRouter, Link } from "react-router-dom";
 import { Button } from "reactstrap";
+import "./Details.css"
 
 class Details extends Component {
   render() {

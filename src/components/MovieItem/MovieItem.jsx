@@ -8,8 +8,10 @@ class MovieItem extends Component {
   posterClicked = () => {
     console.log("poster clicked", this.props.movie.id);
     this.props.dispatch({type: "posterClicked", payload: this.props.movie })
+    this.props.dispatch({type: "getGenre", payload: this.props.movie.id })
     // send a dispatch with type: "posterClicked" and payload: this.props.movie.id
-    // send request to the database with genre
+    // send request to the database with genres
+
   };
   render() {
     const { movie } = this.props;

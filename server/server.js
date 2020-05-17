@@ -25,16 +25,22 @@ app.get('/movies', (req, res) => {
         res.sendStatus(500); 
       })
   })
+  // PUT route for description
+  app.put('/movies')
 
 // GET GENRE 
 
-app.get('/genre', (req, res) => {
+app.get("/movies/:id", (req, res) => {
     console.log('request received in genre');
-  
-    const sqlText = `SELECT * FROM movies`;
-    pool.query(sqlText)
+  let id = req.params.id
+    const sqlText = `SELECT name FROM movies 
+    JOIN junction_movies_genres ON movies.id=junction_movies_genres.movie_id
+    JOIN genres ON junction_movies_genres.genre_id=genres.id
+    WHERE movies.id = $1;`;
+    console.log(id);
+    pool.query(sqlText, [id])
       .then((response) => {
-       
+          console.log(response.rows)
         res.send(response.rows);
       })
       .catch((error) => {

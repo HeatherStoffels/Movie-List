@@ -4,6 +4,7 @@ import MovieList from "../MovieList/MovieList";
 import { HashRouter, Route} from "react-router-dom";
 import { connect } from "react-redux";
 import Details from '../Details/Details'
+import Edit from '../Edit/Edit'
 
 class App extends Component {
 
@@ -33,8 +34,12 @@ class App extends Component {
               <Details {...props} dispatch={this.props.dispatch} />
             )}
           />
-              
-       
+           <Route
+            path="/edit"
+            render={(props) => (
+                <Edit {...props} dispatch={this.props.dispatch}/>
+            )}   
+         />
          
           </HashRouter>
       </div>

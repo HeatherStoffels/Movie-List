@@ -17,8 +17,31 @@ function* rootSaga() {
   console.log("in rootSaga");
   yield takeEvery("getMovies", getMovies);
   yield takeEvery("posterClicked", posterClicked)
+  yield takeEvery("description", description)
+  yield takeEvery("getGenre", getGenre)
 }
+// function that gets the genre for details view
+function* getGenre(action) {
+    console.log("in getGenres function", action.payload);
+    let id = action.payload
+    try {
+      const response = yield axios.get(`/movies/${id}`)
+      yield put({ type: "SET_GENRES", payload: response.data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
+// function to send put request to database to update description
+function* description (action){
+    console.log('in description reducer', action.payload);
+    try{
+        const response = yield axios.put("/movies")
+        yield put({type: "SET_NEW_DESC", payload: response.data});
+    }catch (error){
+        console.log('error in description reducer', error);
+    }
+}
 // create function to call to server
 
 function* getMovies(action) {
@@ -31,12 +54,15 @@ function* getMovies(action) {
   }
 }
 
+// function for getting description and title for details page
 function* posterClicked (action){
     console.log('in posterClicked', action.payload);
     yield put({type: "GET_INFO", payload: action.payload})
 }
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
+
+
 
 // Used to store movies returned from the server
 const movies = (state = [], action) => {

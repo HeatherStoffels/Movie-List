@@ -39,6 +39,7 @@ class Edit extends Component {
        
       <div className="details">
           <HashRouter>
+              <Link to="/"><button>Cancel</button></Link>
        <input id="editTitle" placeholder="Edit Movie Title"  onChange={(event) => this.handleChangeTwo(event, "title")} />
        <button>Send new title</button>
        <input id="editDescription" placeholder="Edit Description"  onChange={(event) => this.handleChange(event, "description")}

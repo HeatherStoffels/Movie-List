@@ -46,9 +46,9 @@ class Edit extends Component {
        <textarea id="editDescription" placeholder="Edit Description"  onChange={(event) => this.handleChange(event, "description")}
         />
         <Link to="/details">
-       <button onClick={this.updateDescription}>Update Description</button></Link>
+       <Button color="secondary"onClick={this.updateDescription}>Update Description</Button></Link>
       
-       {/* <h1>{this.props.reduxState.getinfo.id}</h1> */}
+      
        </HashRouter>
       </div>
     );

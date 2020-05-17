@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-// import MovieItem from '../MovieItem/MovieItem'
-// import MovieList from '../MovieList/MovieList'
+
 import { connect } from "react-redux";
 import { HashRouter, Link } from "react-router-dom";
+import { Button } from 'reactstrap';
 
 
 
@@ -25,8 +25,8 @@ class Details extends Component {
         }
 
        
-       <Link to="/"><button>Home</button></Link>
-       <Link to="/edit"><button>Edit Details</button></Link>
+       <Link to="/"><Button>Home</Button>{' '}</Link>
+       <Link to="/edit"><Button>Edit Details</Button></Link>
        </HashRouter>
       </div>
     );

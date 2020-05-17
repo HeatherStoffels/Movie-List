@@ -17,6 +17,50 @@ CREATE TABLE "genres" (
 -- This table will need to be populated with some data as well (INSERTS)
 -- Recall that this Junction Table will just be a table of ids!
 
+CREATE TABLE "junction_movies_genres" (
+"genre_id" int references genres(id), 
+"movie_id" int references movies(id),
+constraint id PRIMARY KEY (genre_id, movie_id)
+);
+INSERT INTO "junction_movies_genres" ("genre_id", "movie_id")
+VALUES 
+(1, 4),
+(2, 4),
+(4, 4),
+(6, 5),
+(1, 6),
+(7, 6),
+(8, 6),
+(11, 7),
+(1, 8),
+(7, 8),
+(8, 8),
+(1, 9),
+(2, 9),
+(8, 9),
+(1, 10),
+(7, 10),
+(8, 10),
+(11, 10),
+(1, 11),
+(5, 11),
+(8, 11),
+(3, 12),
+(6, 12),
+(3, 13),
+(5, 13),
+(6, 13),
+(10, 13),
+(1, 14),
+(2, 14),
+(8, 14);
+
+
+
+
+
+
+
 
 
 --------[ DATA! ]---------

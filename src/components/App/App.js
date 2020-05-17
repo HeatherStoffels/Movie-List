@@ -11,12 +11,12 @@ class App extends Component {
     componentDidMount(){
         console.log('component in APP', this.props);
         // get request function
-        this.getMovies();
+        this.props.dispatch({ type: 'getMovies'});
 
     }
-    getMovies = ()=>{
-        this.props.dispatch({ type: 'getMovies'});
-    }
+    // getMovies = ()=>{
+    //     this.props.dispatch({ type: 'getMovies'});
+    // }
   // Renders the entire app on the DOM
   render() {
     return (

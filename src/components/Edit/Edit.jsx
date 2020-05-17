@@ -31,6 +31,7 @@ class Edit extends Component {
   updateDescription = ()=>{
       console.log('in update description', this.state.description)
       this.props.dispatch({ type: "description", payload: this.state});
+      this.props.dispatch({ type: 'getMovies'});
   }
   render() {
       // render description and genre of movie that was clicked.
@@ -44,7 +45,8 @@ class Edit extends Component {
         />
         <Link to="/details">
        <button onClick={this.updateDescription}>Update Description</button></Link>
-       <h1>{this.props.reduxState.getinfo.id}</h1>
+      
+       {/* <h1>{this.props.reduxState.getinfo.id}</h1> */}
        </HashRouter>
       </div>
     );
